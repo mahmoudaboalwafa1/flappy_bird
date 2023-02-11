@@ -1,0 +1,88 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-bg: #171427;
+}
+
+body {
+  background-color: var(--main-bg);
+}
+
+.start-game {
+  position: relative;
+  z-index: 999;
+  background-color: red;
+  text-align: center;
+  top: 300px;
+}
+
+div.game-bird {
+  width: 80%;
+  height: 100vh;
+  background-image: url("./static/background.jpg");
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+img.bird {
+  width: 150px;
+  height: 180px;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: top 0.2s linear;
+}
+
+img.wall-bottom,
+.wall-top {
+  height: 200vh;
+  width: 100px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+img.wall-bottom.animation,
+.wall-top.animation {
+  animation: move-wall 3s infinite linear;
+}
+
+@keyframes move-wall {
+  0% {
+    right: 0%;
+  }
+  100% {
+    right: 100%;
+  }
+}
+
+.wall-top {
+  top: 250px;
+  width: 150px;
+  height: 20vh;
+  z-index: 100;
+  transform: rotate(-90deg);
+}
+
+.stop {
+  pointer-events: none;
+  height: 1000px;
+}
+
+.score {
+  background-color: red;
+}
+
+.start {
+  border: none;
+  background-color: transparent;
+  border: 1px white solid;
+  cursor: pointer;
+  padding: 5px;
+  color: white;
+}
